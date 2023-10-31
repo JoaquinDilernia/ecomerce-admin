@@ -1,0 +1,90 @@
+.contenedor{
+    display: flex;
+    width: 100%;
+}
+
+.productos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 100px);
+
+  
+}
+
+.productos__search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem;
+}
+
+.productos__search input{
+    width: 180px;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid var(--principal-color);
+    margin-bottom: 1rem;
+    outline: none;
+}
+
+.productos__table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+    overflow-y: auto;
+    height: auto;
+    width: 100%;
+}
+
+.productos__table table{
+    width: 80%;
+    border-collapse: collapse;
+}
+.productos__table tbody{
+    margin-top: 5rem;
+}
+
+.productos__table table thead{
+    background-color: var(--principal-color);
+    color: var(--secondary-color);
+    top: 0;
+    position: sticky;
+
+}
+
+.productos__table table thead tr th{
+    padding: 1rem;
+}
+
+.productos__table table tbody tr td{
+    
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--principal-color);
+}
+
+
+.productos__table table tbody tr td button{
+    background-color: var(--principal-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.productos__table table tbody tr td button:hover{
+    background-color: var(--secondary-color);
+    color: var(--principal-color);
+}
+
+.image{
+    width: 70px;
+    height: 70px;
+    margin-right: 1rem;
+}

@@ -1,7 +1,3 @@
-:root{
-    --principal-color: #324b77;
-    --secondary-color: #fff;
-}
 
 .login{
     display: flex;

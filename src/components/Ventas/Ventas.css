@@ -1,0 +1,116 @@
+
+.ventas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.ventas__search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem;
+}
+
+.ventas__search input{
+    width: 180px;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid var(--principal-color);
+    margin-bottom: 1rem;
+    outline: none;
+}
+.ventas__table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+    overflow-y: auto;
+    height: auto;
+    width: 100%;
+}
+
+.ventas__table table{
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.ventas__table tbody{
+    margin-top: 5rem;
+}
+
+.ventas__table table thead{
+    background-color: var(--principal-color);
+    color: var(--secondary-color);
+    top: 0;
+    position: sticky;
+
+}
+
+.ventas__table table thead th{
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.ventas__table table tbody tr td{
+    text-align: center;
+    padding: 0.2rem;
+    border-bottom: 1px solid var(--principal-color);
+}
+
+.ventas__table table tbody tr td button{
+    width: 25%;
+    height: 2rem;
+    border: none;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: var(--principal-color);
+    color: var(--secondary-color);
+    border: 0.5px solid var(--principal-color);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.ventas__table table tbody tr td button:hover{
+    background-color: var(--secondary-color);
+    color: var(--principal-color);
+    cursor: pointer;
+    border: 0.5px solid var(--principal-color);
+}
+
+
+.pendiente{
+   color : var(--secondary-color);
+   background-color: orange;
+   padding: 10px;
+    border-radius: 5px;
+}
+
+.entregado{
+color: var(--secondary-color);
+background-color: green;
+padding: 10px;
+border-radius: 5px;
+}
+
+.cancelado{
+color: var(--secondary-color);
+background-color: red;
+padding: 10px;
+border-radius: 5px;
+}
+
+.archivado{
+color: var(--secondary-color);
+background-color: gray;
+padding: 10px;
+border-radius: 5px;
+}
+
+
+

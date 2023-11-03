@@ -1,0 +1,28 @@
+.dashboard{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.dashboard__container-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.dashboard__container-card-item{
+    height: 150px;
+    width: 300px;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+
+}

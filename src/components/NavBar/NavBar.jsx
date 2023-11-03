@@ -32,7 +32,7 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/estadisticas'  className={({ isActive }) =>
+            <NavLink to='/dashboard'  className={({ isActive }) =>
                                 "nav-links" + (isActive ? " activated" : "")
                             }>
                                 <ImStatsBars color='#ffff'/>

@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import "./Ventas.css";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 import {
   getFirestore,
   collection,
@@ -47,8 +51,14 @@ const Ventas = () => {
         ...docSnap.data(),
         estado: "Cancelado",
       });
+      notify1()
+      setTimeout(function () {
+        window.location.reload();
+      }, 2000);
+
     } else {
-      console.log("No such document!");
+      notify2()
+      
     }
   };
 
@@ -60,8 +70,14 @@ const Ventas = () => {
         ...docSnap.data(),
         estado: "Entregado",
       });
+      notify1()
+      setTimeout(function () {
+        window.location.reload();
+      }, 2000);
+
     } else {
-      console.log("No such document!");
+      notify2()
+      
     }
   };
 
@@ -73,8 +89,14 @@ const Ventas = () => {
         ...docSnap.data(),
         estado: "Archivado",
       });
+      notify1()
+      setTimeout(function () {
+        window.location.reload();
+      }, 2000);
+
     } else {
-      console.log("No such document!");
+      notify2()
+      
     }
   };
 
@@ -94,6 +116,7 @@ const Ventas = () => {
     return parseInt(vendedor);
   };
 
+ 
 // funcion para filtrar por estado y vendedor 
 
   const filterestado = (estado) => {
@@ -116,19 +139,33 @@ const Ventas = () => {
       }
     }
 
+    const notify1 = () =>  toast.success('Estado actualizado', {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+
+      const notify2 = () => toast.error('Error! no se pudo actualziar el estado', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+
+
   return (
     <div className="contenedor">
       <NavBar />
       <div className="ventas">
-        <div className="ventas__search">
-          <input
-            type="text"
-            placeholder="Buscar venta"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-
-
         <div className="ventas__filtros">
           <select
             name="estado"
@@ -166,28 +203,73 @@ const Ventas = () => {
                 <th>Apellido</th>
                 <th>Total</th>
                 <th>Fecha</th>
+                <th>hora</th>
                 <th>Estado</th>
                 <th>Vendedor</th>
                 <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-              {filteredVentas
-                .filter((venta) => {
-                  if (search === "") {
-                    return venta;
-                  } else if (
-                    venta.apellido.toLowerCase().includes(search.toLowerCase())
-                  ) {
-                    return venta;
-                  }
-                })
-                .map((venta) => (
+              {filteredVentas.length === 0 && ventas.length > 0 && ventas.map((venta) => (
                   <tr key={venta.id}>
                     <td>{venta.idventa}</td>
                     <td>{venta.apellido}</td>
                     <td>{venta.totalAmount}</td>
                     <td>{venta.fechaActual}</td>
+                    <td>{venta.horacompleta}</td>
+                    <td>
+                      {venta.estado === "Cancelado" ? (
+                        <p className="cancelado">{venta.estado}</p>
+                      ) : null}
+                      {venta.estado === "Entregado" ? (
+                        <p className="entregado">{venta.estado}</p>
+                      ) : null}
+                      {venta.estado === "Pendiente" ? (
+                        <p className="pendiente">{venta.estado}</p>
+                      ) : null}
+                                            {venta.estado === "Archivado" ? (
+                        <p className="Archivado">{venta.estado}</p>
+                      ) : null}
+
+                    </td>
+                    <td>
+                      {searchClient(venta.idcliente) === 1 ? (
+                        <p className="vendedor"> matias</p>
+                      ) : null}
+                      {searchClient(venta.idcliente) === 2 ? (
+                        <p className="vendedor"> marcos</p>
+                      ) : null}
+                      {searchClient(venta.idcliente) === 3 ? (
+                        <p className="vendedor"> lucas</p>
+                      ) : null}
+                      {searchClient(venta.idcliente) === 4 ? (
+                        <p className="vendedor"> juan</p>
+                      ) : null}
+                      {searchClient(venta.idcliente) === 5 ? (
+                        <p className="vendedor"> maria</p>
+                      ) : null}
+                    </td>
+                        
+                    <td>
+                      <button onClick={() => changeStateEntregado(venta.id)}>
+                        Entregado
+                      </button>
+                      <button onClick={() => changeStateCancelado(venta.id)}>
+                        Cancelar
+                      </button>
+                      <button onClick={() => changeStateArchivado(venta.id)}>Archivar</button>
+                    </td>
+                  </tr>
+                ))}
+
+              
+              {filteredVentas.length > 0 && filteredVentas.map((venta) => (
+                  <tr key={venta.id}>
+                    <td>{venta.idventa}</td>
+                    <td>{venta.apellido}</td>
+                    <td>{venta.totalAmount}</td>
+                    <td>{venta.fechaActual}</td>
+                    <td>{venta.horacompleta}</td>
                     <td>
                       {venta.estado === "Cancelado" ? (
                         <p className="cancelado">{venta.estado}</p>
@@ -238,6 +320,19 @@ const Ventas = () => {
           </table>
         </div>
       </div>
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+<ToastContainer />
     </div>
   );
 };

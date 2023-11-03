@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: center;   
     overflow-y: auto;
-    height: auto;
+    height: calc(100vh - 200px);
     width: 100%;
 }
 
@@ -112,5 +112,33 @@ padding: 10px;
 border-radius: 5px;
 }
 
+.ventas__filtros{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem;
+}
 
+.ventas__filtros select{
+    width: 250px;
+    height: 2.5rem;
+    border: none;
+    border-bottom: 1px solid var(--principal-color);
+    margin: 1rem;
+    font-size: 1.2rem;
+    outline: none;
+}
 
+.ventas__filtros select option{
+    font-size: 1rem;
+  
+}
+
+.ventas__filtros select:hover{
+    cursor: pointer;
+    border: 0.5px solid var(--principal-color);
+    border-radius: 1rem;
+    transition: all 0.4s ease;
+}

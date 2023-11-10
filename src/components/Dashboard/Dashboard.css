@@ -26,3 +26,28 @@
     cursor: pointer;
 
 }
+
+.dashboard__container-card-item:hover{
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 15px #324b77;
+}
+
+.dashboard__container-card-item h2{
+    font-size: 2rem;
+    color: var(--principal-color);
+    margin: 1rem;
+}
+
+.dashboard__container-card-item h3{
+    font-size: 1.5rem;
+}
+
+.ventas__filtros{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem;
+}

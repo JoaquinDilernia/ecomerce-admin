@@ -1,26 +1,33 @@
 import React from 'react'
-
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+
+
+
 
 import './Login.css'
 
 const Login = () => {
-    const email = "jdilernia99@gmail.com"
-    const contra = "altolett123"
 
+  
     const validar = (e) => {
         e.preventDefault()
         const usuario = document.getElementById('usuario').value
         const password = document.getElementById('password').value
-        if (usuario === email && password === contra) {
-            alert("Ingreso exitoso")
-            window.location.href = "/home"
+
+        if (usuario === 'admin' && password === 'admin') {
+            window.location.href = '/home'
         } else {
-            alert("Usuario o contraseña incorrectos")
+            const MySwal = withReactContent(Swal)
+            MySwal.fire({
+                title: <p>Usuario o contraseña incorrectos</p>,
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
         }
     }
 
+    
 
 
   return (

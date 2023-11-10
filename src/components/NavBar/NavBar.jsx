@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import { BiHomeAlt2 } from 'react-icons/bi'
@@ -12,14 +12,21 @@ import { IoExitOutline } from 'react-icons/io5'
 
 
 
-
 import './NavBar.css'
 
 const NavBar = () => {
+  
+
+
+    
   return (
     <div className='navbar-lateral'>
+      <div className='navbar-lateral__user'>
+      </div>
       <div className='navbar-lateral__logo'>
+        <Link to='/home'>
         <img src={logo} alt='logo' />
+        </Link>
       </div>
       <div className='navbar__menu'>
         <ul>

@@ -2,12 +2,15 @@ import React from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
+import { useNavigate } from 'react-router-dom'
+
 
 
 
 import './Login.css'
 
 const Login = () => {
+    const navigate = useNavigate()
 
   
     const validar = (e) => {
@@ -16,7 +19,7 @@ const Login = () => {
         const password = document.getElementById('password').value
 
         if (usuario === 'admin' && password === 'admin') {
-            window.location.href = '/home'
+            navigate('/home')
         } else {
             const MySwal = withReactContent(Swal)
             MySwal.fire({

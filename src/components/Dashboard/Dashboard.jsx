@@ -62,7 +62,7 @@ const Dashboard = () => {
           const data = ventas.map((venta) => {
             return {
                 venta: venta.idventa,
-                total: venta.totalAmount,
+                total: venta.total,
                 mes: venta.mes,
                 año: venta.año
             }

@@ -214,7 +214,7 @@ const Ventas = () => {
                   <tr key={venta.id}>
                     <td>{venta.idventa}</td>
                     <td>{venta.apellido}</td>
-                    <td>{venta.totalAmount}</td>
+                    <td>{venta.total}</td>
                     <td>{venta.fechaActual}</td>
                     <td>{venta.horacompleta}</td>
                     <td>
